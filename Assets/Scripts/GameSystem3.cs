@@ -14,6 +14,8 @@ public class GameSystem3 : MonoBehaviour
     public static bool canCurve;
     public static bool canSpeed;
     public static bool Stage3;
+    public AudioSource Pitch;
+    public AudioClip Throwing;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +30,7 @@ public class GameSystem3 : MonoBehaviour
         {
             Interval = 0;
             Curve = Random.Range(1, 4);
+            Pitch.PlayOneShot(Throwing);
             if (Curve == 1)//カーブしない
             {
                 canCurve = false;

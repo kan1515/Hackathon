@@ -9,6 +9,8 @@ public class GameSystem : MonoBehaviour
     public GameObject Ball;
     public GameObject Pitcher;
     public static bool Stage1;
+    public AudioSource Pitch;
+    public AudioClip Throwing;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +25,7 @@ public class GameSystem : MonoBehaviour
         {
             Interval = 0;
             Instantiate(Ball, Pitcher.transform.position, Quaternion.identity);
+            Pitch.PlayOneShot(Throwing);
         }
         if(Score.remainingBall == 0)
         {

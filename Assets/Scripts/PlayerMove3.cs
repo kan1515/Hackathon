@@ -19,6 +19,9 @@ public class PlayerMove3 : MonoBehaviour
     public static float DistanceY; //毎フレームY軸の距離(DistanceY)進む
     public Animator Battinganimator;
 
+    public AudioSource Batter;
+    public AudioClip Swing;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,6 +46,7 @@ public class PlayerMove3 : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             Battinganimator.SetBool("BattingBool", true);
+            Batter.PlayOneShot(Swing);
         }
         if (Input.GetKeyUp(KeyCode.Mouse0))
         {
@@ -57,6 +61,7 @@ public class PlayerMove3 : MonoBehaviour
             Timing = Ball.GetComponent<BallControll>().Timing;
             if (Input.GetKey(KeyCode.Mouse0))
             {
+                Batter.PlayOneShot(Swing);
                 Battinganimator.SetBool("BattingBool", true);
                 if (Timing >= 0 && Timing <= 100)
                 {

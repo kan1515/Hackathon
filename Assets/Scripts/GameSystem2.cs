@@ -12,6 +12,8 @@ public class GameSystem2 : MonoBehaviour
     public GameObject Pitcher;
     public static bool canCurve;
     public static bool Stage2;
+    public AudioSource Pitch;
+    public AudioClip Throwing;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +28,7 @@ public class GameSystem2 : MonoBehaviour
         {
             Interval = 0;
             Curve = Random.Range(1, 3);
+            Pitch.PlayOneShot(Throwing);
             if (Curve == 1)//カーブしない
             {
                 canCurve = false;
